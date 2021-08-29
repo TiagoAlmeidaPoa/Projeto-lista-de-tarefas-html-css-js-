@@ -9,9 +9,10 @@ btnTarefa.addEventListener('click', () => {
 
 function criaTarefa(textoInput) {
     const li = criaLi();
-    li.innerText = textoInput;
+    li.innerText = textoInput+" ";
     tarefas.appendChild(li);
     limpaInput();
+    li.appendChild(criaBotaoApagar());
 }
 
 function criaLi() {
@@ -29,4 +30,12 @@ inputTarefa.addEventListener('keypress', (e) => {
 function limpaInput() {
     inputTarefa.value = '';
     inputTarefa.focus();
+}
+
+function criaBotaoApagar() {
+    const btn = document.createElement('button');
+    btn.innerText = 'apagar';
+    btn.setAttribute('class', 'apagar');
+    btn.setAttribute('title', 'apagar essa tarefa');
+    return btn;
 }
