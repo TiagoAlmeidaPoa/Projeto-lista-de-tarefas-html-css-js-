@@ -39,3 +39,14 @@ function criaBotaoApagar() {
     btn.setAttribute('title', 'apagar essa tarefa');
     return btn;
 }
+
+document.addEventListener('click', (e) => {
+    const el = e.target;
+    if (el.classList.contains('apagar')) {
+        apagarTarefa(el);
+    }
+});
+
+function apagarTarefa(el) {
+    el.parentElement.remove();
+}
