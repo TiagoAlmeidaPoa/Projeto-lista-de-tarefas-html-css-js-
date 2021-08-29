@@ -3,6 +3,7 @@ const btnTarefa = document.querySelector('.btn-tarefa');
 const tarefas = document.querySelector('.tarefas');
 
 btnTarefa.addEventListener('click', () => {
+    if (!inputTarefa.value) return;
     criaTarefa(inputTarefa.value);
 });
 
@@ -19,6 +20,7 @@ function criaLi() {
 
 inputTarefa.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
+        if (!inputTarefa.value) return
         criaTarefa(inputTarefa.value);
     }
 })
