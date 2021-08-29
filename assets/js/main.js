@@ -11,6 +11,7 @@ function criaTarefa(textoInput) {
     const li = criaLi();
     li.innerText = textoInput;
     tarefas.appendChild(li);
+    limpaInput();
 }
 
 function criaLi() {
@@ -24,3 +25,8 @@ inputTarefa.addEventListener('keypress', (e) => {
         criaTarefa(inputTarefa.value);
     }
 })
+
+function limpaInput() {
+    inputTarefa.value = '';
+    inputTarefa.focus();
+}
