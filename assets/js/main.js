@@ -13,6 +13,7 @@ function criaTarefa(textoInput) {
     tarefas.appendChild(li);
     limpaInput();
     li.appendChild(criaBotaoApagar());
+    salvarTarefas();
 }
 
 function criaLi() {
@@ -49,4 +50,18 @@ document.addEventListener('click', (e) => {
 
 function apagarTarefa(el) {
     el.parentElement.remove();
+    salvarTarefas();
+}
+
+function salvarTarefas() {
+    const tarefasLi = tarefas.querySelectorAll('li');
+    const listaDeTarefas = [];
+
+    for (let tarefa of tarefasLi) {
+        tarefa = tarefa.innerText.replace('apagar', '');
+        listaDeTarefas.push(tarefa);
+    }
+
+    const tarefasJSON = JSON.stringify(listaDeTarefas);
+    localStorage.setItem('tarefas', tarefasJSON);
 }
